@@ -11,7 +11,7 @@ The purpose of this notebook is to analyze in depth the non-linear fit of the re
 
 ## Introduction <a name="introduction"></a>
 The quantities measured are the input frequence $f$, the transfer function $T$ and the difference in phase $\Delta \phi$. The resonance curve depends on 3 parameters to estimate: a scale factor $A$, the frequency of oscillations $\Omega$ and the dumping factor $\delta$. 
-$$T(f) = \frac{A 2\pi f}{\sqrt{(2\pi f)^4 - 2(2\pi f)^2 (\Omega^2 - 2\delta^2) + \Omega^4}}$$
+$$T(f) = \frac{A \cdot 2\pi f}{\sqrt{(2\pi f)^4 - 2(2\pi f)^2 (\Omega^2 - 2\delta^2) + \Omega^4}}$$
 The phase curve depends on 3 parameters to estimate: the resistance $R$, the inductance $L$ and the capacitance $C$.
 $$\Delta\phi(f) = \arctan\left(\frac{\frac{1}{2\pi f C} - 2\pi f L}{R}\right)$$
 While both fits will be performed, only the first will be analyzed in depth. This is due to the strong correlation between $C$ and $L$ which makes the second fit unreliable. 
@@ -19,12 +19,12 @@ While both fits will be performed, only the first will be analyzed in depth. Thi
 The best-fit estimates are computed with Minuit by least squares: in both cases the algorithm needs initial values and a sum of squares function to minimize. These are the resulting plots with respective residuals.
 <p float="left">
 <p align="middle">
-  <img src="images/fit_resonance.png" width="43%"/>
+  <img src="images/fit_resonance.png" width="44.4%"/>
   <img src="images/residuals_resonance.png" width="45%"/> 
 </p>
 <p float="left">
 <p align="middle">
-  <img src="images/fit_phase.png" width="43%"/>
+  <img src="images/fit_phase.png" width="44.25%"/>
   <img src="images/residuals_phase.png" width="45%"/> 
 </p>
 
@@ -55,7 +55,7 @@ Now the probability maps are marginalized across both dimensions, giving the 6 p
 </p>
 
 ## Simulation <a name="simulation"></a>
-Lastly, around each datapoint 10000 values are generated normally distibuted with variance equal to the variance of the datapoint. This gives 10000 toy datasets, and for each the best-fit estimates are computed with Minuit. These are then scattered to visually check whether around 68.3% of them fall inside the confidence ellipse given by $\chi^2 - \chi^2_{min} < 2.3$. 
+Lastly, around each datapoint 10k values are generated normally distibuted with variance equal to the variance of the datapoint. This gives 10k toy datasets, and for each the best-fit estimates are computed with Minuit. These are then scattered to visually check whether around 68.3% of them fall inside the confidence ellipse given by $\chi^2 - \chi^2_{min} < 2.3$. 
 <p align="middle">
   <img src="images/simulation.png" width="100%"/>
 </p>
